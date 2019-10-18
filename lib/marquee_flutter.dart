@@ -93,14 +93,14 @@ class MarqueeWidgetState extends State<MarqueeWidget>
 
   Widget getBothEndsChild() {
     if (widget.scrollAxis == Axis.vertical) {
-      if (widget.children.isNotEmpty) {
+      if ((widget?.children ?? []).isNotEmpty) {
         return Center(
           child: Column(
             children: widget.children,
           ),
         );
       }
-      String newString = widget.text.split("").join("\n");
+      String newString = (widget?.text ?? '').split("").join("\n");
       return new Center(
         child: new Text(
           newString,
@@ -109,7 +109,7 @@ class MarqueeWidgetState extends State<MarqueeWidget>
         ),
       );
     }
-    if (widget.children.isNotEmpty) {
+    if ((widget?.children ?? []).isNotEmpty) {
       return new Center(
         child: Row(
           children: widget.children,
